@@ -3,1246 +3,1361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide Complet du Monténégro - LOVELO</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Petits Horizons - Guide du Monténégro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Goudy+Old+Style:wght@400;700&display=swap');
-        
-        .lovelo-font {
-            font-family: 'Arial Black', sans-serif;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .goudy-font {
-            font-family: 'Goudy Old Style', serif;
+
+        :root {
+            --bleu-ciel: #A7D5E8;
+            --jaune-soleil: #F8C36B;
+            --vert-nature: #A7C97E;
+            --vert-sapin: #3B5F4B;
+            --orange-terre: #E98B57;
+            --brun-clair: #CBAE94;
+            --blanc-casse: #F5F2E8;
         }
-        
-        .page {
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--blanc-casse) 0%, var(--bleu-ciel) 100%);
             min-height: 100vh;
-            display: none;
+            color: var(--vert-sapin);
         }
-        
-        .page.active {
+
+        .header {
+            background: var(--vert-sapin);
+            color: var(--blanc-casse);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--orange-terre);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .site-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(rgba(167, 213, 232, 0.8), rgba(167, 213, 232, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><path d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z" fill="%23A7D5E8"/></svg>');
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            color: var(--vert-sapin);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--vert-sapin);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tabs-container {
+            background: var(--blanc-casse);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .tabs {
+            display: flex;
+            background: var(--vert-sapin);
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--blanc-casse);
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab:hover {
+            background: rgba(167, 213, 232, 0.2);
+        }
+
+        .tab.active {
+            background: var(--orange-terre);
+            border-bottom-color: var(--jaune-soleil);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
             display: block;
         }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #A7D5E8 0%, #3B5F4B 100%);
-        }
-        
-        .nature-gradient {
-            background: linear-gradient(135deg, #A7C97E 0%, #3B5F4B 100%);
-        }
-        
-        .warm-gradient {
-            background: linear-gradient(135deg, #F8C36B 0%, #E98B57 100%);
-        }
-        
-        .sky-gradient {
-            background: linear-gradient(135deg, #A7D5E8 0%, #CBAE94 100%);
-        }
-        
-        .earth-gradient {
-            background: linear-gradient(135deg, #E98B57 0%, #CBAE94 100%);
-        }
-        
-        .montenegro-flag {
-            background: #c8102e;
-            position: relative;
-            border: 2px solid #ffd700;
-        }
-        
-        .montenegro-flag::before {
-            content: '🦅';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2rem;
-            color: #ffd700;
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .city-card:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-            box-shadow: 0 20px 40px rgba(59, 95, 75, 0.15);
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            color: var(--vert-sapin);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--orange-terre);
+            padding-bottom: 0.5rem;
         }
-        
+
+        .city-card {
+            background: linear-gradient(135deg, var(--bleu-ciel), var(--vert-nature));
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .city-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--vert-sapin);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .activity-list {
+            background: var(--blanc-casse);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--jaune-soleil);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .itinerary-day {
+            background: var(--jaune-soleil);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--orange-terre);
+        }
+
+        .day-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--vert-sapin);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
         .budget-item {
-            border-left: 4px solid #A7C97E;
-            padding-left: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bleu-ciel);
+            border-radius: 10px;
+            margin-bottom: 1rem;
         }
-        
-        .brand-shadow {
-            box-shadow: 0 10px 30px rgba(59, 95, 75, 0.1);
+
+        .price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--vert-sapin);
+            font-size: 1.2rem;
         }
-        
-        .nav-btn-active {
-            background-color: #3B5F4B !important;
-            color: #F5F2E8 !important;
+
+        .recommendation-card {
+            background: linear-gradient(135deg, var(--orange-terre), var(--brun-clair));
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            color: var(--blanc-casse);
         }
-        
-        .nav-btn-inactive {
-            background-color: #CBAE94 !important;
-            color: #3B5F4B !important;
+
+        .recommendation-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
-        
-        .nav-btn-inactive:hover {
-            background-color: #A7C97E !important;
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: var(--jaune-soleil);
+            font-size: 1.2rem;
+        }
+
+        .info-box {
+            background: var(--vert-nature);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--vert-sapin);
+        }
+
+        .highlight {
+            background: var(--jaune-soleil);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            color: var(--vert-sapin);
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab {
+                flex: 1;
+                min-width: 120px;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
-<body class="goudy-font" style="background-color: #F5F2E8;">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 brand-shadow" style="background-color: #F5F2E8;">
-        <div class="max-w-6xl mx-auto px-4 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 rounded-full" style="background-color: #E98B57;"></div>
-                    <h1 class="lovelo-font text-2xl" style="color: #3B5F4B;">Petits Horizons</h1>
-                </div>
-                <div class="flex space-x-2">
-                    <button onclick="showPage(0)" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all">Introduction</button>
-                    <button onclick="showPage(1)" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all">Villes</button>
-                    <button onclick="showPage(2)" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all">Logistique</button>
-                    <button onclick="showPage(3)" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all">Culture</button>
-                    <button onclick="showPage(4)" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all">Budget</button>
-                    <button onclick="showPage(5)" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all">Adresses</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body>
+    <header class="header">
+        <div class="logo">PH</div>
+        <h1 class="site-title">PETITS HORIZONS</h1>
+    </header>
 
-    <!-- Page 1: Introduction -->
-    <div class="page active fade-in" id="page-0">
-        <div class="gradient-bg pt-20 pb-12">
-            <div class="max-w-4xl mx-auto px-6 text-center" style="color: #F5F2E8;">
-                <h1 class="lovelo-font text-5xl mb-6">Le Monténégro</h1>
-                <p class="text-xl mb-8 opacity-90">La Perle des Balkans</p>
-                <div class="montenegro-flag w-32 h-20 mx-auto rounded-lg shadow-lg mb-8"></div>
-            </div>
+    <div class="container">
+        <div class="hero">
+            <h1>🏔️ Guide Complet du Monténégro</h1>
+            <p>Découvrez les merveilles des Balkans : montagnes majestueuses, côtes adriatiques et culture authentique</p>
         </div>
-        
-        <div class="max-w-4xl mx-auto px-6 py-12">
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="lovelo-font text-3xl mb-6" style="color: #3B5F4B;">🌍 Présentation Générale</h2>
-                    <div class="space-y-4 leading-relaxed" style="color: #3B5F4B;">
-                        <p>Le Monténégro, littéralement "Montagne Noire", est un petit pays des Balkans d'une beauté saisissante. Avec ses 13 812 km² et ses 630 000 habitants, ce joyau méditerranéen offre une diversité géographique exceptionnelle.</p>
-                        
-                        <p>Indépendant depuis 2006, le Monténégro combine harmonieusement côtes adriatiques cristallines, montagnes majestueuses, lacs glaciaires et canyons spectaculaires. Sa position stratégique entre l'Est et l'Ouest de l'Europe en fait un carrefour culturel fascinant.</p>
-                        
-                        <p>Le pays utilise l'euro comme monnaie officielle et le monténégrin (très proche du serbe) comme langue principale, bien que l'anglais soit largement parlé dans les zones touristiques.</p>
-                    </div>
-                </div>
+
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('introduction')">Introduction</button>
+                <button class="tab" onclick="showTab('villes')">Top Villes</button>
+                <button class="tab" onclick="showTab('itineraire')">Itinéraire 7j</button>
+                <button class="tab" onclick="showTab('logistique')">Logistique</button>
+                <button class="tab" onclick="showTab('nourriture')">Gastronomie</button>
+                <button class="tab" onclick="showTab('culture')">Culture</button>
+                <button class="tab" onclick="showTab('budget')">Budget</button>
+                <button class="tab" onclick="showTab('recommandations')">Nos Coups de Cœur</button>
+            </div>
+
+            <div id="introduction" class="tab-content active">
+                <h2 class="section-title">🇲🇪 Bienvenue au Monténégro</h2>
                 
-                <div>
-                    <h2 class="lovelo-font text-3xl mb-6" style="color: #3B5F4B;">📊 Informations Clés</h2>
-                    <div class="rounded-xl brand-shadow p-6" style="background-color: #F5F2E8; border: 2px solid #CBAE94;">
-                        <div class="space-y-4" style="color: #3B5F4B;">
-                            <div class="flex justify-between border-b pb-2" style="border-color: #A7C97E;">
-                                <span class="font-semibold">Capitale:</span>
-                                <span>Podgorica</span>
+                <div class="info-box">
+                    <h3>Pourquoi visiter le Monténégro ?</h3>
+                    <p>Le Monténégro, "Crna Gora" en serbe, signifie littéralement "Montagne Noire". Ce petit pays des Balkans offre une diversité géographique exceptionnelle sur seulement 13 812 km². Des plages de l'Adriatique aux sommets des Alpes dinariques, en passant par des lacs glaciaires et des canyons vertigineux.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">📍 Informations Essentielles</h3>
+                        <ul>
+                            <li><strong>Capitale :</strong> Podgorica (administrative), Cetinje (historique)</li>
+                            <li><strong>Population :</strong> 628 000 habitants</li>
+                            <li><strong>Superficie :</strong> 13 812 km²</li>
+                            <li><strong>Monnaie :</strong> Euro (€)</li>
+                            <li><strong>Langues :</strong> Monténégrin, Serbe, Bosniaque, Albanais</li>
+                            <li><strong>Religion :</strong> Orthodoxe (72%), Musulmane (19%)</li>
+                        </ul>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">🌍 Géographie & Climat</h3>
+                        <ul>
+                            <li><strong>Côte adriatique :</strong> 295 km de littoral</li>
+                            <li><strong>Point culminant :</strong> Bobotov Kuk (2 523m)</li>
+                            <li><strong>Climat :</strong> Méditerranéen sur la côte, continental en montagne</li>
+                            <li><strong>Meilleure période :</strong> Mai-Septembre (côte), Juin-Août (montagne)</li>
+                            <li><strong>Parcs nationaux :</strong> 5 (Durmitor, Biogradska Gora, Lovćen, Skadar, Prokletije)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>🏛️ Histoire en Bref</h3>
+                    <p>Indépendant depuis 2006, le Monténégro a une riche histoire marquée par l'Empire ottoman, l'Autriche-Hongrie, et la Yougoslavie. Le pays a conservé son identité culturelle unique, mélange d'influences slaves, ottomanes et vénitiennes. Membre de l'OTAN depuis 2017, il aspire à rejoindre l'Union européenne.</p>
+                </div>
+            </div>
+
+            <div id="villes" class="tab-content">
+                <h2 class="section-title">🏙️ Top des Villes à Visiter</h2>
+
+                <div class="city-card">
+                    <h3 class="city-name">🏰 Kotor - La Perle de l'Adriatique</h3>
+                    <p>Ville médiévale fortifiée inscrite au patrimoine UNESCO, nichée au fond des bouches de Kotor.</p>
+                    
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🏰</div>
+                            <div>
+                                <strong>Vieille ville de Kotor</strong><br>
+                                Remparts vénitiens, cathédrale Saint-Tryphon (1166), palais et places pittoresques
                             </div>
-                            <div class="flex justify-between border-b pb-2" style="border-color: #A7C97E;">
-                                <span class="font-semibold">Population:</span>
-                                <span>630 000 habitants</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">⛰️</div>
+                            <div>
+                                <strong>Forteresse Saint-Jean</strong><br>
+                                Montée de 1350 marches, vue panoramique sur la baie (2-3h aller-retour)
                             </div>
-                            <div class="flex justify-between border-b pb-2" style="border-color: #A7C97E;">
-                                <span class="font-semibold">Superficie:</span>
-                                <span>13 812 km²</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🚤</div>
+                            <div>
+                                <strong>Excursion en bateau</strong><br>
+                                Tour des bouches de Kotor, île artificielle Notre-Dame-du-Rocher
                             </div>
-                            <div class="flex justify-between border-b pb-2" style="border-color: #A7C97E;">
-                                <span class="font-semibold">Monnaie:</span>
-                                <span>Euro (€)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="city-card">
+                    <h3 class="city-name">🏖️ Budva - La Riviera Monténégrine</h3>
+                    <p>Station balnéaire animée avec plages de sable fin et vie nocturne dynamique.</p>
+                    
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🏖️</div>
+                            <div>
+                                <strong>Plages de Budva</strong><br>
+                                Mogren, Jaz, Slovenska plaža - sable fin et eaux cristallines
                             </div>
-                            <div class="flex justify-between border-b pb-2" style="border-color: #A7C97E;">
-                                <span class="font-semibold">Fuseau horaire:</span>
-                                <span>UTC+1 (CET)</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🏛️</div>
+                            <div>
+                                <strong>Stari Grad (Vieille ville)</strong><br>
+                                Remparts médiévaux, églises orthodoxes, musée archéologique
                             </div>
-                            <div class="flex justify-between">
-                                <span class="font-semibold">Climat:</span>
-                                <span>Méditerranéen/Continental</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🏝️</div>
+                            <div>
+                                <strong>Île de Sveti Stefan</strong><br>
+                                Village-hôtel sur îlot rocheux, symbole du Monténégro (15 min en voiture)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="city-card">
+                    <h3 class="city-name">🏔️ Žabljak - Porte du Parc Durmitor</h3>
+                    <p>Ville de montagne, base idéale pour explorer le parc national Durmitor.</p>
+                    
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🏔️</div>
+                            <div>
+                                <strong>Parc National Durmitor</strong><br>
+                                18 lacs glaciaires, sommets de 2000m+, randonnées exceptionnelles
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🌊</div>
+                            <div>
+                                <strong>Canyon de la Tara</strong><br>
+                                Plus profond d'Europe (1300m), rafting, pont Đurđevića Tara
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🏞️</div>
+                            <div>
+                                <strong>Lac Noir (Crno Jezero)</strong><br>
+                                Lac glaciaire à 1416m d'altitude, randonnée facile (30 min)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="city-card">
+                    <h3 class="city-name">🏛️ Cetinje - Ancienne Capitale Royale</h3>
+                    <p>Ville historique, ancienne capitale du royaume du Monténégro.</p>
+                    
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🏰</div>
+                            <div>
+                                <strong>Palais du Roi Nicolas</strong><br>
+                                Résidence royale transformée en musée national
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">⛪</div>
+                            <div>
+                                <strong>Monastère de Cetinje</strong><br>
+                                Centre spirituel orthodoxe, reliques de Saint Pierre de Cetinje
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🏛️</div>
+                            <div>
+                                <strong>Musée Vlaška</strong><br>
+                                Histoire et culture monténégrines, collections ethnographiques
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="city-card">
+                    <h3 class="city-name">🦅 Podgorica - Capitale Moderne</h3>
+                    <p>Centre économique et administratif, mélange d'architecture socialiste et moderne.</p>
+                    
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🌉</div>
+                            <div>
+                                <strong>Pont du Millénaire</strong><br>
+                                Pont câblé moderne sur la Morača, symbole de la nouvelle capitale
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">⛪</div>
+                            <div>
+                                <strong>Cathédrale de la Résurrection</strong><br>
+                                Plus grande église orthodoxe du Monténégro, architecture contemporaine
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🏞️</div>
+                            <div>
+                                <strong>Parc Gorica</strong><br>
+                                Colline boisée au centre-ville, vue panoramique sur Podgorica
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-12">
-                <h2 class="lovelo-font text-3xl mb-8 text-center" style="color: #3B5F4B;">🏞️ Géographie & Climat</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #A7D5E8;">
-                        <div class="text-4xl mb-4">🏖️</div>
-                        <h3 class="lovelo-font text-xl mb-3" style="color: #3B5F4B;">Côte Adriatique</h3>
-                        <p style="color: #3B5F4B;">295 km de littoral avec des plages de sable fin, des criques secrètes et des eaux cristallines. Température estivale: 25-30°C</p>
+
+            <div id="itineraire" class="tab-content">
+                <h2 class="section-title">🗺️ Itinéraire Idéal - 7 Jours</h2>
+
+                <div class="itinerary-day">
+                    <h3 class="day-title">Jour 1 : Arrivée à Podgorica & Route vers Kotor</h3>
+                    <p><strong>Matin :</strong> Atterrissage à Podgorica, récupération de la voiture de location</p>
+                    <p><strong>Après-midi :</strong> Route vers Kotor (1h30), installation à l'hôtel</p>
+                    <p><strong>Soir :</strong> Première découverte de la vieille ville de Kotor, dîner dans un konoba traditionnel</p>
+                    <p><span class="highlight">Distance :</span> 90 km | <span class="highlight">Hébergement :</span> Kotor</p>
+                </div>
+
+                <div class="itinerary-day">
+                    <h3 class="day-title">Jour 2 : Exploration Complète de Kotor</h3>
+                    <p><strong>Matin :</strong> Montée à la forteresse Saint-Jean (départ tôt pour éviter la chaleur)</p>
+                    <p><strong>Après-midi :</strong> Visite de la cathédrale Saint-Tryphon, flânerie dans les ruelles</p>
+                    <p><strong>Soir :</strong> Excursion en bateau vers l'île Notre-Dame-du-Rocher</p>
+                    <p><span class="highlight">Conseil :</span> Prévoir 3L d'eau pour la montée à la forteresse</p>
+                </div>
+
+                <div class="itinerary-day">
+                    <h3 class="day-title">Jour 3 : Kotor → Budva → Sveti Stefan</h3>
+                    <p><strong>Matin :</strong> Route côtière vers Budva (30 min), visite de la vieille ville</p>
+                    <p><strong>Après-midi :</strong> Plage de Mogren, puis route vers Sveti Stefan</p>
+                    <p><strong>Soir :</strong> Photos au coucher de soleil à Sveti Stefan, retour à Budva</p>
+                    <p><span class="highlight">Distance :</span> 50 km | <span class="highlight">Hébergement :</span> Budva</p>
+                </div>
+
+                <div class="itinerary-day">
+                    <h3 class="day-title">Jour 4 : Budva → Cetinje → Žabljak</h3>
+                    <p><strong>Matin :</strong> Route vers Cetinje (45 min), visite du palais royal</p>
+                    <p><strong>Après-midi :</strong> Continuation vers Žabljak via le parc Lovćen</p>
+                    <p><strong>Soir :</strong> Installation à Žabljak, dîner montagnard</p>
+                    <p><span class="highlight">Distance :</span> 180 km | <span class="highlight">Hébergement :</span> Žabljak</p>
+                </div>
+
+                <div class="itinerary-day">
+                    <h3 class="day-title">Jour 5 : Parc National Durmitor</h3>
+                    <p><strong>Matin :</strong> Randonnée au Lac Noir, puis Lac de Trsa</p>
+                    <p><strong>Après-midi :</strong> Visite du canyon de la Tara, pont Đurđevića</p>
+                    <p><strong>Soir :</strong> Repos à Žabljak, cuisine locale</p>
+                    <p><span class="highlight">Activité :</span> Possibilité de rafting sur la Tara (réservation conseillée)</p>
+                </div>
+
+                <div class="itinerary-day">
+                    <h3 class="day-title">Jour 6 : Žabljak → Lac Skadar → Podgorica</h3>
+                    <p><strong>Matin :</strong> Route vers le lac Skadar (2h30)</p>
+                    <p><strong>Après-midi :</strong> Excursion en bateau sur le lac, observation des oiseaux</p>
+                    <p><strong>Soir :</strong> Route vers Podgorica, installation</p>
+                    <p><span class="highlight">Distance :</span> 200 km | <span class="highlight">Hébergement :</span> Podgorica</p>
+                </div>
+
+                <div class="itinerary-day">
+                    <h3 class="day-title">Jour 7 : Podgorica & Départ</h3>
+                    <p><strong>Matin :</strong> Visite rapide de Podgorica (pont du Millénaire, cathédrale)</p>
+                    <p><strong>Après-midi :</strong> Shopping de souvenirs, retour de la voiture</p>
+                    <p><strong>Soir :</strong> Vol de départ</p>
+                    <p><span class="highlight">Conseil :</span> Prévoir 2h avant le vol pour les formalités</p>
+                </div>
+            </div>
+
+            <div id="logistique" class="tab-content">
+                <h2 class="section-title">🚗 Logistique & Transport</h2>
+
+                <div class="info-box">
+                    <h3>✈️ Aéroports</h3>
+                    <p><strong>Podgorica (TGD) :</strong> Principal aéroport, 12 km du centre-ville. Liaisons directes depuis Paris, Lyon, Belgrade.</p>
+                    <p><strong>Tivat (TIV) :</strong> Aéroport côtier, 20 km de Kotor. Vols saisonniers, plus pratique pour la côte.</p>
+                    <p><strong>Dubrovnik (DBV) :</strong> Croatie, 2h de route de Kotor. Plus de vols internationaux.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">🚗 Location de Voiture</h3>
+                        <ul>
+                            <li><strong>Obligatoire :</strong> Permis international + permis français</li>
+                            <li><strong>Âge minimum :</strong> 21 ans (supplément -25 ans)</li>
+                            <li><strong>Assurance :</strong> Tous risques recommandée</li>
+                            <li><strong>Carburant :</strong> Essence 1,40€/L, Diesel 1,30€/L</li>
+                            <li><strong>Péages :</strong> Inexistants</li>
+                            <li><strong>Compagnies :</strong> Hertz, Avis, Europcar, locales moins chères</li>
+                        </ul>
                     </div>
-                    
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #A7C97E;">
-                        <div class="text-4xl mb-4">⛰️</div>
-                        <h3 class="lovelo-font text-xl mb-3" style="color: #3B5F4B;">Montagnes</h3>
-                        <p style="color: #3B5F4B;">Pics dépassant 2500m, forêts denses et parcs nationaux. Climat continental avec neige hivernale abondante</p>
+
+                    <div class="city-card">
+                        <h3 class="city-name">🚌 Transports Publics</h3>
+                        <ul>
+                            <li><strong>Bus :</strong> Réseau correct entre grandes villes</li>
+                            <li><strong>Podgorica-Kotor :</strong> 2h, 5-8€</li>
+                            <li><strong>Kotor-Budva :</strong> 30 min, 2-3€</li>
+                            <li><strong>Train :</strong> Ligne Belgrade-Bar via Podgorica</li>
+                            <li><strong>Taxi :</strong> 0,50€/km, négocier le prix</li>
+                        </ul>
                     </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>📱 Réseau Mobile & e-SIM</h3>
+                    <p><strong>Opérateurs locaux :</strong> Telenor, T-Mobile, m:tel</p>
+                    <p><strong>Couverture :</strong> Excellente sur la côte, correcte en montagne</p>
+                    <p><strong>e-SIM recommandées :</strong></p>
+                    <ul>
+                        <li><strong>Airalo :</strong> 1GB/7j = 4,50€, 3GB/30j = 11€</li>
+                        <li><strong>Holafly :</strong> Données illimitées 7j = 19€</li>
+                        <li><strong>Orange Holiday :</strong> 8GB Europe = 39€</li>
+                    </ul>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">🛣️ Conduite au Monténégro</h3>
+                        <ul>
+                            <li><strong>Côté :</strong> Droite (comme en France)</li>
+                            <li><strong>Vitesse :</strong> 50 km/h ville, 80 km/h route, 130 km/h autoroute</li>
+                            <li><strong>Alcool :</strong> 0,3‰ (0,5‰ en France)</li>
+                            <li><strong>Feux :</strong> Obligatoires jour et nuit</li>
+                            <li><strong>Routes :</strong> Correctes sur la côte, sinueuses en montagne</li>
+                        </ul>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">🎫 Formalités</h3>
+                        <ul>
+                            <li><strong>Passeport/CNI :</strong> Valide, pas de visa UE</li>
+                            <li><strong>Séjour :</strong> 90 jours maximum</li>
+                            <li><strong>Assurance :</strong> Carte européenne recommandée</li>
+                            <li><strong>Vaccins :</strong> Aucun obligatoire</li>
+                            <li><strong>Douane :</strong> 200 cigarettes, 1L alcool</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="nourriture" class="tab-content">
+                <h2 class="section-title">🍽️ Gastronomie Monténégrine</h2>
+
+                <div class="info-box">
+                    <h3>🥘 Spécialités Incontournables</h3>
+                    <p>La cuisine monténégrine mélange influences balkanes, méditerranéennes et ottomanes. Produits frais de l'Adriatique, viandes grillées des montagnes, et légumes des vallées fertiles.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">🥩 Plats de Viande</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">🥩</div>
+                                <div>
+                                    <strong>Ćevapi</strong><br>
+                                    Petites saucisses grillées servies avec oignon et pain pita
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🍖</div>
+                                <div>
+                                    <strong>Pljeskavica</strong><br>
+                                    "Hamburger des Balkans", steak haché grillé épicé
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🐑</div>
+                                <div>
+                                    <strong>Janjetina</strong><br>
+                                    Agneau rôti à la broche, spécialité des montagnes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">🐟 Poissons & Fruits de Mer</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">🐟</div>
+                                <div>
+                                    <strong>Riblja Čorba</strong><br>
+                                    Soupe de poisson traditionnelle de l'Adriatique
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🦑</div>
+                                <div>
+                                    <strong>Lignje na Žaru</strong><br>
+                                    Calamars grillés à l'huile d'olive et ail
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🐠</div>
+                                <div>
+                                    <strong>Brancin</strong><br>
+                                    Bar grillé, poisson roi de l'Adriatique
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="city-card">
+                    <h3 class="city-name">🧀 Fromages & Accompagnements</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🧀</div>
+                            <div>
+                                <strong>Njeguški Sir</strong><br>
+                                Fromage fumé de Njeguši, accompagne parfaitement le prosciutto
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🥓</div>
+                            <div>
+                                <strong>Njeguški Pršut</strong><br>
+                                Jambon cru fumé, spécialité du village de Njeguši
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🥗</div>
+                            <div>
+                                <strong>Shopska Salata</strong><br>
+                                Salade de tomates, concombres, poivrons et fromage blanc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">🍷 Boissons Locales</h3>
+                        <ul>
+                            <li><strong>Rakija :</strong> Eau-de-vie de prune (šljivovica) ou raisin</li>
+                            <li><strong>Vins :</strong> Vranac (rouge), Krstač (blanc)</li>
+                            <li><strong>Bière :</strong> Nikšićko, Trebjesa</li>
+                            <li><strong>Café :</strong> Turc (turska kafa) très fort</li>
+                            <li><strong>Yogourt :</strong> Kiselo mlijeko, très épais</li>
+                        </ul>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">🍰 Desserts Traditionnels</h3>
+                        <ul>
+                            <li><strong>Baklava :</strong> Pâtisserie aux noix et miel</li>
+                            <li><strong>Palačinke :</strong> Crêpes fourrées confiture/Nutella</li>
+                            <li><strong>Krempita :</strong> Mille-feuille à la crème</li>
+                            <li><strong>Tufahije :</strong> Pommes farcies aux noix</li>
+                            <li><strong>Sutlijaš :</strong> Riz au lait parfumé</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>🍽️ Où Manger ?</h3>
+                    <p><strong>Konoba :</strong> Restaurant traditionnel familial, cuisine authentique</p>
+                    <p><strong>Restoran :</strong> Restaurant classique, carte plus variée</p>
+                    <p><strong>Kafana :</strong> Café-restaurant avec musique live</p>
+                    <p><strong>Prix moyens :</strong> Plat principal 8-15€, menu complet 20-30€</p>
+                </div>
+            </div>
+
+            <div id="culture" class="tab-content">
+                <h2 class="section-title">🎭 Culture & Traditions</h2>
+
+                <div class="info-box">
+                    <h3>🏛️ Héritage Culturel</h3>
+                    <p>Le Monténégro possède un riche patrimoine culturel façonné par des siècles d'influences diverses : byzantine, vénitienne, ottomane et austro-hongroise. Cette diversité se reflète dans l'architecture, la musique, les traditions et l'art de vivre.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">🎵 Musique & Danse</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">🎵</div>
+                                <div>
+                                    <strong>Gusle</strong><br>
+                                    Instrument traditionnel à une corde, accompagne les épopées héroïques
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">💃</div>
+                                <div>
+                                    <strong>Oro</strong><br>
+                                    Danse traditionnelle en cercle, symbole d'unité communautaire
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🎶</div>
+                                <div>
+                                    <strong>Klapa</strong><br>
+                                    Chant polyphonique a cappella de la côte adriatique
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">⛪ Religion & Spiritualité</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">☦️</div>
+                                <div>
+                                    <strong>Orthodoxie</strong><br>
+                                    72% de la population, Église orthodoxe serbe majoritaire
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🕌</div>
+                                <div>
+                                    <strong>Islam</strong><br>
+                                    19% de la population, héritage ottoman préservé
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">⛪</div>
+                                <div>
+                                    <strong>Catholicisme</strong><br>
+                                    Minorité catholique, influence vénitienne sur la côte
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="city-card">
+                    <h3 class="city-name">🎨 Arts & Artisanat</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🧵</div>
+                            <div>
+                                <strong>Broderie Traditionnelle</strong><br>
+                                Motifs géométriques colorés sur costumes folkloriques
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🏺</div>
+                            <div>
+                                <strong>Céramique</strong><br>
+                                Poteries décoratives et utilitaires, techniques ancestrales
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🔨</div>
+                            <div>
+                                <strong>Travail du Bois</strong><br>
+                                Sculptures, meubles traditionnels, objets décoratifs
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">⚒️</div>
+                            <div>
+                                <strong>Filigrane</strong><br>
+                                Bijoux en argent finement travaillés, technique ottomane
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">🎉 Fêtes & Festivals</h3>
+                        <ul>
+                            <li><strong>Slava :</strong> Fête du saint patron familial (orthodoxe)</li>
+                            <li><strong>Festival de Kotor :</strong> Juillet-Août, musique classique</li>
+                            <li><strong>Mimosa Festival :</strong> Février, Herceg Novi</li>
+                            <li><strong>Sea Dance :</strong> Juillet, festival électro à Budva</li>
+                            <li><strong>Noël orthodoxe :</strong> 7 janvier</li>
+                        </ul>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">🤝 Savoir-Vivre</h3>
+                        <ul>
+                            <li><strong>Salutation :</strong> Poignée de main ferme, contact visuel</li>
+                            <li><strong>Hospitalité :</strong> Très importante, refuser est impoli</li>
+                            <li><strong>Café :</strong> Moment social essentiel, ne pas presser</li>
+                            <li><strong>Tenue :</strong> Correcte dans les lieux religieux</li>
+                            <li><strong>Pourboire :</strong> 10% dans les restaurants</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>📚 Littérature & Épopées</h3>
+                    <p><strong>Petar II Petrović-Njegoš :</strong> Poète national, auteur de "La Couronne de la Montagne" (Gorski Vijenac), épopée fondatrice de la littérature monténégrine. Les épopées héroïques transmises oralement célèbrent la résistance contre l'occupation ottomane et forgent l'identité nationale.</p>
+                </div>
+
+                <div class="city-card">
+                    <h3 class="city-name">🏛️ Architecture Remarquable</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🏰</div>
+                            <div>
+                                <strong>Vénitienne</strong><br>
+                                Kotor, Budva - remparts, palais, églises romanes
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🕌</div>
+                            <div>
+                                <strong>Ottomane</strong><br>
+                                Mosquées, hammams, maisons à encorbellement
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">⛪</div>
+                            <div>
+                                <strong>Byzantine</strong><br>
+                                Monastères orthodoxes, fresques médiévales
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="budget" class="tab-content">
+                <h2 class="section-title">💰 Budget de Voyage</h2>
+
+                <div class="info-box">
+                    <h3>💡 Aperçu Général</h3>
+                    <p>Le Monténégro reste abordable comparé à l'Europe occidentale, mais les prix augmentent sur la côte en haute saison. L'euro facilite les calculs pour les voyageurs français.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">🏨 Hébergement (par nuit)</h3>
+                        <div class="budget-item">
+                            <span>Auberge de jeunesse</span>
+                            <span class="price">15-25€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Hôtel 3* (côte)</span>
+                            <span class="price">50-80€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Hôtel 3* (montagne)</span>
+                            <span class="price">35-60€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Hôtel 4* (côte)</span>
+                            <span class="price">80-150€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Appartement Airbnb</span>
+                            <span class="price">40-90€</span>
+                        </div>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">🍽️ Restauration (par personne)</h3>
+                        <div class="budget-item">
+                            <span>Street food / Ćevapi</span>
+                            <span class="price">3-5€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Restaurant local</span>
+                            <span class="price">8-15€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Restaurant touristique</span>
+                            <span class="price">15-25€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Restaurant gastronomique</span>
+                            <span class="price">25-40€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Bière locale</span>
+                            <span class="price">2-4€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">🚗 Transport</h3>
+                        <div class="budget-item">
+                            <span>Location voiture (7j)</span>
+                            <span class="price">150-300€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Essence (plein 50L)</span>
+                            <span class="price">70€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Bus Podgorica-Kotor</span>
+                            <span class="price">5-8€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Taxi (course moyenne)</span>
+                            <span class="price">5-15€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Vol Paris-Podgorica</span>
+                            <span class="price">200-500€</span>
+                        </div>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">🎯 Activités & Visites</h3>
+                        <div class="budget-item">
+                            <span>Entrée parc national</span>
+                            <span class="price">3€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Excursion bateau Kotor</span>
+                            <span class="price">15-25€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Rafting Tara (demi-journée)</span>
+                            <span class="price">35-50€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Visite guidée ville</span>
+                            <span class="price">10-20€</span>
+                        </div>
+                        <div class="budget-item">
+                            <span>Musée/Monument</span>
+                            <span class="price">2-5€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="city-card">
+                    <h3 class="city-name">📊 Budgets Types (7 jours, 2 personnes)</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🎒</div>
+                            <div>
+                                <strong>Budget Routard</strong><br>
+                                Auberges, transports publics, restaurants locaux : <span class="highlight">600-800€</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🏨</div>
+                            <div>
+                                <strong>Budget Confort</strong><br>
+                                Hôtels 3*, voiture de location, mix restaurants : <span class="highlight">1200-1600€</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">✨</div>
+                            <div>
+                                <strong>Budget Luxe</strong><br>
+                                Hôtels 4*+, restaurants gastronomiques, activités premium : <span class="highlight">2000-3000€</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>💳 Moyens de Paiement</h3>
+                    <p><strong>Espèces :</strong> Privilégiées, surtout en montagne et marchés</p>
+                    <p><strong>Cartes :</strong> Acceptées dans hôtels, restaurants touristiques, stations-service</p>
+                    <p><strong>Distributeurs :</strong> Nombreux dans les villes, rares en montagne</p>
+                    <p><strong>Change :</strong> Inutile (Euro), attention aux frais bancaires</p>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">💡 Conseils Économies</h3>
+                        <ul>
+                            <li>Voyager hors saison (mai-juin, septembre)</li>
+                            <li>Manger dans les konobas locales</li>
+                            <li>Acheter au marché pour pique-niques</li>
+                            <li>Négocier les hébergements privés</li>
+                            <li>Grouper les activités payantes</li>
+                        </ul>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">⚠️ Coûts Cachés</h3>
+                        <ul>
+                            <li>Frais bancaires à l'étranger</li>
+                            <li>Parking payant centres-villes</li>
+                            <li>Supplément terrasse restaurants</li>
+                            <li>Taxe de séjour (1-2€/nuit)</li>
+                            <li>Pourboires attendus (10%)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="recommandations" class="tab-content">
+                <h2 class="section-title">⭐ Nos Coups de Cœur par Ville</h2>
+
+                <!-- KOTOR -->
+                <div class="city-card">
+                    <h3 class="city-name">🏰 KOTOR - La Perle Médiévale</h3>
                     
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #F8C36B;">
-                        <div class="text-4xl mb-4">🏞️</div>
-                        <h3 class="lovelo-font text-xl mb-3" style="color: #3B5F4B;">Lacs & Canyons</h3>
-                        <p style="color: #3B5F4B;">Lacs glaciaires, rivières sauvages et le canyon de la Tara, le plus profond d'Europe (1300m)</p>
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍽️ Restaurant : Konoba Scala Santa</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.8/5 sur Google (1,247 avis)</span>
+                        </div>
+                        <p><strong>Spécialité :</strong> Cuisine monténégrine authentique dans un cadre médiéval exceptionnel</p>
+                        <p><strong>Plats signature :</strong> Pljeskavica maison, poissons grillés de l'Adriatique, fromage de Njeguši</p>
+                        <p><strong>Prix :</strong> 20-30€/personne | <strong>Adresse :</strong> Stari Grad 428 | <strong>Tél :</strong> +382 32 325 777</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍸 Bar : Bokun</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.6/5 sur Google (743 avis)</span>
+                        </div>
+                        <p><strong>Concept :</strong> Bar intimiste dans une cave voûtée du XIVe siècle</p>
+                        <p><strong>Spécialités :</strong> Cocktails aux herbes locales, sélection de rakijas premium</p>
+                        <p><strong>Prix :</strong> Cocktails 7-10€ | <strong>Adresse :</strong> Stari Grad 490 | <strong>Horaires :</strong> 18h-2h</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🏨 Hôtel : Hotel Cattaro</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.9/5 sur Google (1,156 avis)</span>
+                        </div>
+                        <p><strong>Standing :</strong> Boutique hôtel 4* dans palais vénitien du XVIIe siècle</p>
+                        <p><strong>Services :</strong> 13 suites uniques, spa, restaurant gastronomique</p>
+                        <p><strong>Prix :</strong> 180-350€/nuit | <strong>Tél :</strong> +382 32 311 000</p>
+                    </div>
+                </div>
+
+                <!-- BUDVA -->
+                <div class="city-card">
+                    <h3 class="city-name">🏖️ BUDVA - Riviera Adriatique</h3>
+                    
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍽️ Restaurant : Jadran Kod Krsta</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.7/5 sur Google (1,892 avis)</span>
+                        </div>
+                        <p><strong>Spécialité :</strong> Poissons et fruits de mer frais, institution locale depuis 1950</p>
+                        <p><strong>Plats signature :</strong> Brancin grillé, risotto aux fruits de mer, plateau de poissons</p>
+                        <p><strong>Prix :</strong> 25-40€/personne | <strong>Adresse :</strong> Slovenska Obala 10 | <strong>Tél :</strong> +382 33 451 628</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍸 Bar : Citadela</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.7/5 sur Google (892 avis)</span>
+                        </div>
+                        <p><strong>Concept :</strong> Bar à cocktails sur les remparts avec vue panoramique</p>
+                        <p><strong>Cocktails signature :</strong> Montenegro Mule, Adriatic Sunset</p>
+                        <p><strong>Prix :</strong> Cocktails 8-12€ | <strong>Adresse :</strong> Citadela bb | <strong>Happy Hour :</strong> 17h-19h</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🏨 Hôtel : Avala Resort & Villas</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.8/5 sur Google (2,341 avis)</span>
+                        </div>
+                        <p><strong>Standing :</strong> Resort 5* face à la mer, architecture méditerranéenne</p>
+                        <p><strong>Services :</strong> Plage privée, 3 piscines, spa, 4 restaurants</p>
+                        <p><strong>Prix :</strong> 200-450€/nuit | <strong>Tél :</strong> +382 33 402 000</p>
+                    </div>
+                </div>
+
+                <!-- ŽABLJAK -->
+                <div class="city-card">
+                    <h3 class="city-name">🏔️ ŽABLJAK - Porte des Montagnes</h3>
+                    
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍽️ Restaurant : Etno Selo Žabljak</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.9/5 sur Google (567 avis)</span>
+                        </div>
+                        <p><strong>Spécialité :</strong> Cuisine traditionnelle montagnarde, agneau à la broche</p>
+                        <p><strong>Plats signature :</strong> Janjetina ispod sača, fromages locaux, kajmak frais</p>
+                        <p><strong>Prix :</strong> 15-25€/personne | <strong>Adresse :</strong> Durmitor National Park | <strong>Tél :</strong> +382 52 361 379</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍸 Bar : Highlander Bar</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.5/5 sur Google (234 avis)</span>
+                        </div>
+                        <p><strong>Concept :</strong> Bar d'altitude avec cheminée, ambiance chalet montagnard</p>
+                        <p><strong>Spécialités :</strong> Rakijas artisanales, bières locales, vin chaud</p>
+                        <p><strong>Prix :</strong> Bières 3-5€, Rakija 4-8€ | <strong>Adresse :</strong> Njegoševa 8 | <strong>Horaires :</strong> 16h-1h</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🏨 Hôtel : Hotel Soa</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.8/5 sur Google (445 avis)</span>
+                        </div>
+                        <p><strong>Standing :</strong> Hôtel boutique 4* design moderne, vue sur Durmitor</p>
+                        <p><strong>Services :</strong> Spa wellness, restaurant gastronomique, activités outdoor</p>
+                        <p><strong>Prix :</strong> 120-200€/nuit | <strong>Tél :</strong> +382 52 361 400</p>
+                    </div>
+                </div>
+
+                <!-- CETINJE -->
+                <div class="city-card">
+                    <h3 class="city-name">🏛️ CETINJE - Ancienne Capitale</h3>
+                    
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍽️ Restaurant : Kole</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.6/5 sur Google (389 avis)</span>
+                        </div>
+                        <p><strong>Spécialité :</strong> Cuisine royale monténégrine, recettes historiques</p>
+                        <p><strong>Plats signature :</strong> Cicvara (polenta au fromage), pršut de Njeguši, truites du Lovćen</p>
+                        <p><strong>Prix :</strong> 18-28€/personne | <strong>Adresse :</strong> Njegoševa 87 | <strong>Tél :</strong> +382 41 231 582</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍸 Bar : Gradska Kafana</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.4/5 sur Google (156 avis)</span>
+                        </div>
+                        <p><strong>Concept :</strong> Kafana traditionnelle avec musique live folklorique</p>
+                        <p><strong>Spécialités :</strong> Café turc, rakijas régionales, ambiance authentique</p>
+                        <p><strong>Prix :</strong> Café 1,5€, Rakija 3-6€ | <strong>Adresse :</strong> Trg Nikole I Petrovića | <strong>Horaires :</strong> 8h-24h</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🏨 Hôtel : Hotel Grand</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.3/5 sur Google (278 avis)</span>
+                        </div>
+                        <p><strong>Standing :</strong> Hôtel historique 3* rénové, charme d'époque</p>
+                        <p><strong>Services :</strong> Restaurant traditionnel, proximité musées, parking</p>
+                        <p><strong>Prix :</strong> 60-90€/nuit | <strong>Tél :</strong> +382 41 230 900</p>
+                    </div>
+                </div>
+
+                <!-- PODGORICA -->
+                <div class="city-card">
+                    <h3 class="city-name">🦅 PODGORICA - Capitale Moderne</h3>
+                    
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍽️ Restaurant : Pod Volat</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.7/5 sur Google (1,123 avis)</span>
+                        </div>
+                        <p><strong>Spécialité :</strong> Cuisine moderne monténégrine, produits bio locaux</p>
+                        <p><strong>Plats signature :</strong> Bœuf du Bjelasica, légumes de Zeta, desserts créatifs</p>
+                        <p><strong>Prix :</strong> 22-35€/personne | <strong>Adresse :</strong> Stanka Dragojevića 16 | <strong>Tél :</strong> +382 20 664 446</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🍸 Bar : Sky Bar</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.5/5 sur Google (667 avis)</span>
+                        </div>
+                        <p><strong>Concept :</strong> Rooftop bar au 12e étage, vue panoramique sur la ville</p>
+                        <p><strong>Cocktails signature :</strong> Morača Mist, Capital Sunset, sélection de champagnes</p>
+                        <p><strong>Prix :</strong> Cocktails 9-15€ | <strong>Adresse :</strong> Bulevar Svetog Petra Cetinjskog | <strong>Horaires :</strong> 17h-2h</p>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3 class="recommendation-title">🏨 Hôtel : Hilton Podgorica Crna Gora</h3>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span>4.6/5 sur Google (1,789 avis)</span>
+                        </div>
+                        <p><strong>Standing :</strong> Hôtel 5* international, standard Hilton</p>
+                        <p><strong>Services :</strong> Spa, fitness, 2 restaurants, centre d'affaires</p>
+                        <p><strong>Prix :</strong> 150-280€/nuit | <strong>Tél :</strong> +382 20 405 405</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>🎯 Pourquoi Ces Recommandations ?</h3>
+                    <p>Ces établissements ont été sélectionnés pour leur excellence reconnue, leur authenticité monténégrine et leur capacité à offrir une expérience mémorable. Tous maintiennent des standards élevés tout en préservant l'âme locale du Monténégro.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="city-card">
+                        <h3 class="city-name">📱 Réservations Conseillées</h3>
+                        <ul>
+                            <li><strong>Restaurant :</strong> 2-3 jours à l'avance en été</li>
+                            <li><strong>Bar :</strong> Pas de réservation, arriver avant 18h</li>
+                            <li><strong>Hôtel :</strong> 1-2 mois à l'avance (haute saison)</li>
+                            <li><strong>Alternatives :</strong> Demander des recommandations similaires</li>
+                        </ul>
+                    </div>
+
+                    <div class="city-card">
+                        <h3 class="city-name">💡 Conseils Pratiques</h3>
+                        <ul>
+                            <li>Mentionner "Petits Horizons" lors des réservations</li>
+                            <li>Vérifier les horaires saisonniers</li>
+                            <li>Prévoir du liquide pour les pourboires</li>
+                            <li>Respecter le dress code (smart casual)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Page 2: Villes -->
-    <div class="page fade-in" id="page-1">
-        <div class="nature-gradient pt-20 pb-12">
-            <div class="max-w-4xl mx-auto px-6 text-center" style="color: #F5F2E8;">
-                <h1 class="lovelo-font text-4xl mb-4">🏛️ Top Villes à Visiter</h1>
-                <p class="text-lg opacity-90">Découvrez les perles urbaines du Monténégro</p>
-            </div>
-        </div>
-        
-        <div class="max-w-6xl mx-auto px-6 py-12">
-            <!-- Kotor -->
-            <div class="city-card rounded-2xl brand-shadow mb-12 overflow-hidden" style="background-color: #F5F2E8;">
-                <div class="md:flex">
-                    <div class="md:w-1/3 sky-gradient p-8" style="color: #F5F2E8;">
-                        <h2 class="lovelo-font text-3xl mb-4">🏰 Kotor</h2>
-                        <p class="text-lg mb-4">Ville médiévale UNESCO</p>
-                        <div class="text-6xl">🏰</div>
-                    </div>
-                    <div class="md:w-2/3 p-8">
-                        <h3 class="lovelo-font text-2xl mb-4" style="color: #3B5F4B;">Incontournables:</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #A7D5E8;">🏛️ Vieille Ville</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Remparts médiévaux parfaitement conservés, ruelles pavées, palais vénitiens et places romantiques</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #A7D5E8;">⛪ Cathédrale Saint-Tryphon</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Chef-d'œuvre roman du XIIe siècle, trésor d'art sacré et reliques précieuses</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #A7D5E8;">🏔️ Forteresse Saint-Jean</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">1350 marches, 2h de montée, vue panoramique époustouflante sur la baie</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #A7D5E8;">🌊 Baie de Kotor</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Fjord méditerranéen, croisières, îles artificielles et villages pittoresques</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Budva -->
-            <div class="city-card rounded-2xl brand-shadow mb-12 overflow-hidden" style="background-color: #F5F2E8;">
-                <div class="md:flex">
-                    <div class="md:w-1/3 warm-gradient p-8" style="color: #F5F2E8;">
-                        <h2 class="lovelo-font text-3xl mb-4">🏖️ Budva</h2>
-                        <p class="text-lg mb-4">Riviera monténégrine</p>
-                        <div class="text-6xl">🏖️</div>
-                    </div>
-                    <div class="md:w-2/3 p-8">
-                        <h3 class="lovelo-font text-2xl mb-4" style="color: #3B5F4B;">Incontournables:</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #E98B57;">🏰 Stari Grad</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Citadelle fortifiée du XVe siècle, musées, galeries d'art et restaurants authentiques</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #E98B57;">🏖️ Plage de Mogren</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Deux criques paradisiaques reliées par un tunnel, eaux turquoise et sable fin</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #E98B57;">🏝️ Île de Sveti Stefan</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Village-hôtel de luxe sur îlot rocheux, symbole du Monténégro, photos depuis la plage</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #E98B57;">🌙 Vie Nocturne</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Clubs branchés, bars de plage, casinos et festivals d'été internationaux</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cetinje -->
-            <div class="city-card rounded-2xl brand-shadow mb-12 overflow-hidden" style="background-color: #F5F2E8;">
-                <div class="md:flex">
-                    <div class="md:w-1/3 earth-gradient p-8" style="color: #F5F2E8;">
-                        <h2 class="lovelo-font text-3xl mb-4">👑 Cetinje</h2>
-                        <p class="text-lg mb-4">Ancienne capitale royale</p>
-                        <div class="text-6xl">👑</div>
-                    </div>
-                    <div class="md:w-2/3 p-8">
-                        <h3 class="lovelo-font text-2xl mb-4" style="color: #3B5F4B;">Incontournables:</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #CBAE94;">🏛️ Palais Royal</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Résidence des rois Petrović, musée national, collections d'art et objets historiques</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #CBAE94;">⛪ Monastère de Cetinje</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Centre spirituel orthodoxe, reliques sacrées et architecture byzantine remarquable</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #CBAE94;">🏛️ Musée d'Histoire</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Collections ethnographiques, armes anciennes et témoignages de l'indépendance</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #CBAE94;">🌲 Parc National Lovćen</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Mausolée de Njegoš au sommet, randonnées et panoramas sur tout le pays</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Podgorica -->
-            <div class="city-card rounded-2xl brand-shadow overflow-hidden" style="background-color: #F5F2E8;">
-                <div class="md:flex">
-                    <div class="md:w-1/3 nature-gradient p-8" style="color: #F5F2E8;">
-                        <h2 class="lovelo-font text-3xl mb-4">🏙️ Podgorica</h2>
-                        <p class="text-lg mb-4">Capitale moderne</p>
-                        <div class="text-6xl">🏙️</div>
-                    </div>
-                    <div class="md:w-2/3 p-8">
-                        <h3 class="lovelo-font text-2xl mb-4" style="color: #3B5F4B;">Incontournables:</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #A7C97E;">🌉 Pont du Millénaire</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Pont câblé moderne sur la Morača, symbole architectural de la nouvelle capitale</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #A7C97E;">🏛️ Stara Varoš</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Quartier ottoman préservé, mosquées historiques et architecture traditionnelle</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #A7C97E;">🛍️ Delta City</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Plus grand centre commercial des Balkans, shopping, restaurants et divertissements</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: #A7C97E;">🌳 Parc Gorica</h4>
-                                <p class="text-sm" style="color: #3B5F4B;">Colline boisée au cœur de la ville, sentiers de randonnée et vues panoramiques</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page 3: Logistique -->
-    <div class="page fade-in" id="page-2">
-        <div class="sky-gradient pt-20 pb-12">
-            <div class="max-w-4xl mx-auto px-6 text-center" style="color: #F5F2E8;">
-                <h1 class="lovelo-font text-4xl mb-4">🚗 Logistique & Transport</h1>
-                <p class="text-lg opacity-90">Tout pour organiser votre voyage</p>
-            </div>
-        </div>
-        
-        <div class="max-w-6xl mx-auto px-6 py-12">
-            <!-- Aéroports -->
-            <div class="rounded-2xl brand-shadow p-8 mb-12" style="background-color: #F5F2E8;">
-                <h2 class="lovelo-font text-3xl mb-6 flex items-center" style="color: #3B5F4B;">
-                    ✈️ Aéroports
-                </h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="budget-item">
-                        <h3 class="text-xl font-semibold mb-3" style="color: #A7D5E8;">Podgorica (TGD)</h3>
-                        <ul class="space-y-2" style="color: #3B5F4B;">
-                            <li>• Principal aéroport international</li>
-                            <li>• 12 km du centre-ville</li>
-                            <li>• Vols directs: Paris, Londres, Belgrade, Istanbul</li>
-                            <li>• Navette bus: 1€, Taxi: 8-12€</li>
-                            <li>• Location de voiture sur place</li>
-                        </ul>
-                    </div>
-                    <div class="budget-item">
-                        <h3 class="text-xl font-semibold mb-3" style="color: #A7C97E;">Tivat (TIV)</h3>
-                        <ul class="space-y-2" style="color: #3B5F4B;">
-                            <li>• Proche de la côte adriatique</li>
-                            <li>• 4 km de Tivat, 8 km de Kotor</li>
-                            <li>• Vols saisonniers européens</li>
-                            <li>• Bus vers Kotor: 1.50€</li>
-                            <li>• Idéal pour séjour balnéaire</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Transport -->
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="rounded-2xl brand-shadow p-8" style="background-color: #F5F2E8;">
-                    <h2 class="lovelo-font text-2xl mb-6 flex items-center" style="color: #3B5F4B;">
-                        🚌 Transport Public
-                    </h2>
-                    <div class="space-y-4">
-                        <div class="p-4 rounded-lg" style="background-color: #A7D5E8;">
-                            <h3 class="font-semibold mb-2" style="color: #3B5F4B;">🏛️ Bus Intercités</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Réseau efficace reliant toutes les villes principales. Podgorica-Kotor: 3€, 1h30</p>
-                        </div>
-                        <div class="p-4 rounded-lg" style="background-color: #A7C97E;">
-                            <h3 class="font-semibold mb-2" style="color: #3B5F4B;">🚌 Bus Urbains</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">0.80€ le ticket, fréquence correcte dans les grandes villes</p>
-                        </div>
-                        <div class="p-4 rounded-lg" style="background-color: #F8C36B;">
-                            <h3 class="font-semibold mb-2" style="color: #3B5F4B;">🚂 Train</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Ligne Belgrade-Bar très pittoresque, traverse tout le pays du nord au sud</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rounded-2xl brand-shadow p-8" style="background-color: #F5F2E8;">
-                    <h2 class="lovelo-font text-2xl mb-6 flex items-center" style="color: #3B5F4B;">
-                        🚗 Location de Voiture
-                    </h2>
-                    <div class="space-y-4">
-                        <div class="p-4 rounded-lg" style="background-color: #E98B57;">
-                            <h3 class="font-semibold mb-2" style="color: #F5F2E8;">Avantages</h3>
-                            <p class="text-sm" style="color: #F5F2E8;">Liberté totale, accès aux sites reculés, routes panoramiques spectaculaires</p>
-                        </div>
-                        <div class="p-4 rounded-lg" style="background-color: #CBAE94;">
-                            <h3 class="font-semibold mb-2" style="color: #3B5F4B;">Prix</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">25-40€/jour selon saison. Essence: 1.30€/L. Péages rares</p>
-                        </div>
-                        <div class="p-4 rounded-lg" style="background-color: #F8C36B;">
-                            <h3 class="font-semibold mb-2" style="color: #3B5F4B;">Conseils</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Routes de montagne sinueuses, conduite prudente recommandée</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Réseau Mobile & Internet -->
-            <div class="rounded-2xl brand-shadow p-8 mb-12" style="background-color: #F5F2E8;">
-                <h2 class="lovelo-font text-3xl mb-6 flex items-center" style="color: #3B5F4B;">
-                    📱 Réseau Mobile & Internet
-                </h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #A7D5E8;">
-                            <span class="text-2xl">📶</span>
-                        </div>
-                        <h3 class="lovelo-font text-xl mb-3" style="color: #A7D5E8;">Couverture</h3>
-                        <p class="text-sm" style="color: #3B5F4B;">Excellente 4G dans les villes et sur la côte. 3G en montagne. Roaming UE inclus</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #A7C97E;">
-                            <span class="text-2xl">💳</span>
-                        </div>
-                        <h3 class="lovelo-font text-xl mb-3" style="color: #A7C97E;">Cartes & e-SIM</h3>
-                        <p class="text-sm mb-2" style="color: #3B5F4B;">Cartes physiques: Telenor, Crnogorski Telekom, m:tel. 10€ = 5GB + appels</p>
-                        <p class="text-sm" style="color: #3B5F4B;">e-SIM recommandée: Airalo, Holafly. 5-15€ pour 1-30GB. Installation instantanée</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #F8C36B;">
-                            <span class="text-2xl">📶</span>
-                        </div>
-                        <h3 class="lovelo-font text-xl mb-3" style="color: #F8C36B;">WiFi</h3>
-                        <p class="text-sm" style="color: #3B5F4B;">Gratuit dans hôtels, restaurants, cafés. Hotspots publics dans centres-villes</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Conseils Pratiques -->
-            <div class="rounded-2xl p-8" style="background: linear-gradient(135deg, #A7D5E8 0%, #F8C36B 100%);">
-                <h2 class="lovelo-font text-3xl mb-6 flex items-center" style="color: #3B5F4B;">
-                    💡 Conseils Pratiques
-                </h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4" style="color: #3B5F4B;">🛂 Formalités</h3>
-                        <ul class="space-y-2" style="color: #3B5F4B;">
-                            <li>• Carte d'identité UE suffisante</li>
-                            <li>• Séjour jusqu'à 90 jours sans visa</li>
-                            <li>• Assurance voyage recommandée</li>
-                            <li>• Permis de conduire français valide</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4" style="color: #3B5F4B;">⚡ Électricité</h3>
-                        <ul class="space-y-2" style="color: #3B5F4B;">
-                            <li>• 230V, 50Hz (standard européen)</li>
-                            <li>• Prises type C et F</li>
-                            <li>• Pas d'adaptateur nécessaire</li>
-                            <li>• Réseau électrique stable</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page 4: Culture -->
-    <div class="page fade-in" id="page-3">
-        <div class="warm-gradient pt-20 pb-12">
-            <div class="max-w-4xl mx-auto px-6 text-center" style="color: #F5F2E8;">
-                <h1 class="lovelo-font text-4xl mb-4">🍽️ Gastronomie & Culture</h1>
-                <p class="text-lg opacity-90">Saveurs authentiques et traditions vivantes</p>
-            </div>
-        </div>
-        
-        <div class="max-w-6xl mx-auto px-6 py-12">
-            <!-- Gastronomie -->
-            <div class="rounded-2xl brand-shadow p-8 mb-12" style="background-color: #F5F2E8;">
-                <h2 class="lovelo-font text-3xl mb-8 flex items-center" style="color: #3B5F4B;">
-                    🍽️ Spécialités Culinaires
-                </h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #E98B57;">
-                        <div class="text-4xl mb-3">🥩</div>
-                        <h3 class="lovelo-font text-lg mb-2" style="color: #F5F2E8;">Ćevapi</h3>
-                        <p class="text-sm" style="color: #F5F2E8;">Petites saucisses grillées servies avec pain pita, oignons et kajmak (crème fraîche)</p>
-                        <p class="text-xs mt-2 font-semibold" style="color: #F5F2E8;">Prix: 3-5€</p>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #A7D5E8;">
-                        <div class="text-4xl mb-3">🐟</div>
-                        <h3 class="lovelo-font text-lg mb-2" style="color: #3B5F4B;">Poissons Grillés</h3>
-                        <p class="text-sm" style="color: #3B5F4B;">Dorade, loup de mer, rouget frais de l'Adriatique, grillés à l'huile d'olive</p>
-                        <p class="text-xs mt-2 font-semibold" style="color: #3B5F4B;">Prix: 12-18€</p>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #A7C97E;">
-                        <div class="text-4xl mb-3">🧀</div>
-                        <h3 class="lovelo-font text-lg mb-2" style="color: #3B5F4B;">Njeguški Pršut</h3>
-                        <p class="text-sm" style="color: #3B5F4B;">Jambon fumé traditionnel de Njeguši, affiné en montagne, servi avec fromage</p>
-                        <p class="text-xs mt-2 font-semibold" style="color: #3B5F4B;">Prix: 8-12€</p>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #F8C36B;">
-                        <div class="text-4xl mb-3">🍲</div>
-                        <h3 class="lovelo-font text-lg mb-2" style="color: #3B5F4B;">Kačamak</h3>
-                        <p class="text-sm" style="color: #3B5F4B;">Polenta crémeuse au fromage et crème, plat montagnard réconfortant</p>
-                        <p class="text-xs mt-2 font-semibold" style="color: #3B5F4B;">Prix: 4-6€</p>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #CBAE94;">
-                        <div class="text-4xl mb-3">🍷</div>
-                        <h3 class="lovelo-font text-lg mb-2" style="color: #3B5F4B;">Vranac</h3>
-                        <p class="text-sm" style="color: #3B5F4B;">Vin rouge local robuste, cépage autochtone cultivé depuis l'Antiquité</p>
-                        <p class="text-xs mt-2 font-semibold" style="color: #3B5F4B;">Prix: 15-25€/bouteille</p>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 text-center brand-shadow" style="background-color: #E98B57;">
-                        <div class="text-4xl mb-3">🥧</div>
-                        <h3 class="lovelo-font text-lg mb-2" style="color: #F5F2E8;">Burek</h3>
-                        <p class="text-sm" style="color: #F5F2E8;">Pâte feuilletée farcie (viande, fromage, épinards), héritage ottoman</p>
-                        <p class="text-xs mt-2 font-semibold" style="color: #F5F2E8;">Prix: 2-4€</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Culture Locale -->
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="rounded-2xl brand-shadow p-8" style="background-color: #F5F2E8;">
-                    <h2 class="lovelo-font text-2xl mb-6 flex items-center" style="color: #3B5F4B;">
-                        🎭 Traditions & Coutumes
-                    </h2>
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="font-semibold mb-2 flex items-center" style="color: #F8C36B;">
-                                🤝 Hospitalité
-                            </h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Les Monténégrins sont réputés pour leur accueil chaleureux. Il est courant d'être invité à partager un café ou un rakija (eau-de-vie locale).</p>
-                        </div>
-                        
-                        <div>
-                            <h3 class="font-semibold mb-2 flex items-center" style="color: #A7D5E8;">
-                                ⛪ Religion
-                            </h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Majorité orthodoxe (72%), minorités musulmanes et catholiques. Respect mutuel et tolérance religieuse.</p>
-                        </div>
-                        
-                        <div>
-                            <h3 class="font-semibold mb-2 flex items-center" style="color: #A7C97E;">
-                                🎵 Musique
-                            </h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Chants épiques traditionnels, musique folklorique avec gusle (instrument à cordes), influences balkaniques.</p>
-                        </div>
-                        
-                        <div>
-                            <h3 class="font-semibold mb-2 flex items-center" style="color: #E98B57;">
-                                👥 Savoir-vivre
-                            </h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Poignée de main ferme, contact visuel important, respect des aînés, tenue correcte dans les lieux religieux.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rounded-2xl brand-shadow p-8" style="background-color: #F5F2E8;">
-                    <h2 class="lovelo-font text-2xl mb-6 flex items-center" style="color: #3B5F4B;">
-                        🎉 Festivals & Événements
-                    </h2>
-                    <div class="space-y-4">
-                        <div class="budget-item" style="border-color: #A7D5E8;">
-                            <h3 class="font-semibold" style="color: #A7D5E8;">Sea Dance Festival</h3>
-                            <p class="text-sm" style="color: #CBAE94;">Juillet - Budva</p>
-                            <p class="text-sm" style="color: #3B5F4B;">Festival de musique électronique sur la plage, DJs internationaux</p>
-                        </div>
-                        
-                        <div class="budget-item" style="border-color: #A7C97E;">
-                            <h3 class="font-semibold" style="color: #A7C97E;">KotorArt</h3>
-                            <p class="text-sm" style="color: #CBAE94;">Juillet-Août - Kotor</p>
-                            <p class="text-sm" style="color: #3B5F4B;">Festival international de théâtre dans la vieille ville médiévale</p>
-                        </div>
-                        
-                        <div class="budget-item" style="border-color: #F8C36B;">
-                            <h3 class="font-semibold" style="color: #F8C36B;">Fête de la Saint-Tryphon</h3>
-                            <p class="text-sm" style="color: #CBAE94;">3 Février - Kotor</p>
-                            <p class="text-sm" style="color: #3B5F4B;">Procession religieuse, costumes traditionnels, patrimoine UNESCO</p>
-                        </div>
-                        
-                        <div class="budget-item" style="border-color: #E98B57;">
-                            <h3 class="font-semibold" style="color: #E98B57;">Festival du Film</h3>
-                            <p class="text-sm" style="color: #CBAE94;">Août - Herceg Novi</p>
-                            <p class="text-sm" style="color: #3B5F4B;">Cinéma des Balkans, projections en plein air, rencontres d'auteurs</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Langue -->
-            <div class="rounded-2xl p-8" style="background: linear-gradient(135deg, #A7C97E 0%, #F8C36B 100%);">
-                <h2 class="lovelo-font text-3xl mb-6 flex items-center" style="color: #3B5F4B;">
-                    🗣️ Guide Linguistique
-                </h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4" style="color: #3B5F4B;">Expressions Essentielles</h3>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Bonjour:</span>
-                                <span style="color: #3B5F4B;">Zdravo</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Merci:</span>
-                                <span style="color: #3B5F4B;">Hvala</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">S'il vous plaît:</span>
-                                <span style="color: #3B5F4B;">Molim</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Excusez-moi:</span>
-                                <span style="color: #3B5F4B;">Izvините</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Au revoir:</span>
-                                <span style="color: #3B5F4B;">Doviđenja</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4" style="color: #3B5F4B;">Au Restaurant</h3>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">L'addition:</span>
-                                <span style="color: #3B5F4B;">Račun</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Eau:</span>
-                                <span style="color: #3B5F4B;">Voda</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Bière:</span>
-                                <span style="color: #3B5F4B;">Pivo</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Vin:</span>
-                                <span style="color: #3B5F4B;">Vino</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Délicieux:</span>
-                                <span style="color: #3B5F4B;">Ukusno</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4" style="color: #3B5F4B;">Directions</h3>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Où est...?:</span>
-                                <span style="color: #3B5F4B;">Gdje je...?</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Gauche:</span>
-                                <span style="color: #3B5F4B;">Lijevo</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Droite:</span>
-                                <span style="color: #3B5F4B;">Desno</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Tout droit:</span>
-                                <span style="color: #3B5F4B;">Pravo</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="font-medium" style="color: #3B5F4B;">Centre-ville:</span>
-                                <span style="color: #3B5F4B;">Centar</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page 5: Budget -->
-    <div class="page fade-in" id="page-4">
-        <div class="earth-gradient pt-20 pb-12">
-            <div class="max-w-4xl mx-auto px-6 text-center" style="color: #F5F2E8;">
-                <h1 class="lovelo-font text-4xl mb-4">💰 Guide Budget</h1>
-                <p class="text-lg opacity-90">Planifiez vos dépenses au Monténégro</p>
-            </div>
-        </div>
-        
-        <div class="max-w-6xl mx-auto px-6 py-12">
-            <!-- Budgets par profil -->
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="rounded-2xl p-8 brand-shadow" style="background-color: #A7C97E; border: 2px solid #3B5F4B;">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-3">🎒</div>
-                        <h2 class="lovelo-font text-2xl" style="color: #3B5F4B;">Budget Routard</h2>
-                        <p class="text-3xl font-bold mt-2" style="color: #3B5F4B;">25-35€/jour</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🏠 Hébergement</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Auberges, dortoirs: 8-15€/nuit</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🍽️ Repas</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Street food, marchés: 10-15€/jour</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🚌 Transport</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Bus locaux, marche: 3-5€/jour</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🎯 Activités</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Randonnées gratuites, plages: 2-5€/jour</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rounded-2xl p-8 brand-shadow" style="background-color: #A7D5E8; border: 2px solid #3B5F4B;">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-3">🏨</div>
-                        <h2 class="lovelo-font text-2xl" style="color: #3B5F4B;">Budget Confort</h2>
-                        <p class="text-3xl font-bold mt-2" style="color: #3B5F4B;">50-80€/jour</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🏠 Hébergement</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Hôtels 3*, B&B: 25-40€/nuit</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🍽️ Repas</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Restaurants locaux: 20-30€/jour</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🚗 Transport</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Location voiture, essence: 15-25€/jour</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🎯 Activités</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Visites, excursions: 10-15€/jour</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rounded-2xl p-8 brand-shadow" style="background-color: #F8C36B; border: 2px solid #3B5F4B;">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-3">👑</div>
-                        <h2 class="lovelo-font text-2xl" style="color: #3B5F4B;">Budget Luxe</h2>
-                        <p class="text-3xl font-bold mt-2" style="color: #3B5F4B;">120€+/jour</p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🏠 Hébergement</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Hôtels 4-5*, resorts: 80-200€/nuit</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🍽️ Repas</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Restaurants gastronomiques: 40-60€/jour</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🚗 Transport</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Voiture premium, chauffeur: 30-50€/jour</p>
-                        </div>
-                        <div class="budget-item">
-                            <h3 class="font-semibold" style="color: #3B5F4B;">🎯 Activités</h3>
-                            <p class="text-sm" style="color: #3B5F4B;">Excursions privées, spa: 20-40€/jour</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Détail des prix -->
-            <div class="rounded-2xl brand-shadow p-8 mb-12" style="background-color: #F5F2E8;">
-                <h2 class="lovelo-font text-3xl mb-8" style="color: #3B5F4B;">💳 Prix Détaillés</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4 flex items-center" style="color: #E98B57;">
-                            🍽️ Restauration
-                        </h3>
-                        <div class="space-y-2 text-sm" style="color: #3B5F4B;">
-                            <div class="flex justify-between">
-                                <span>Café:</span>
-                                <span class="font-medium">1-2€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Bière locale:</span>
-                                <span class="font-medium">1.50-3€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Repas rapide:</span>
-                                <span class="font-medium">3-6€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Restaurant moyen:</span>
-                                <span class="font-medium">8-15€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Restaurant haut de gamme:</span>
-                                <span class="font-medium">20-35€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Bouteille de vin:</span>
-                                <span class="font-medium">8-25€</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4 flex items-center" style="color: #A7D5E8;">
-                            🚌 Transport
-                        </h3>
-                        <div class="space-y-2 text-sm" style="color: #3B5F4B;">
-                            <div class="flex justify-between">
-                                <span>Bus urbain:</span>
-                                <span class="font-medium">0.80€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Taxi (km):</span>
-                                <span class="font-medium">0.80-1.20€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Bus Podgorica-Kotor:</span>
-                                <span class="font-medium">3-4€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Location voiture/jour:</span>
-                                <span class="font-medium">25-40€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Essence (litre):</span>
-                                <span class="font-medium">1.30€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Parking centre-ville:</span>
-                                <span class="font-medium">1-2€/h</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4 flex items-center" style="color: #A7C97E;">
-                            🎯 Activités
-                        </h3>
-                        <div class="space-y-2 text-sm" style="color: #3B5F4B;">
-                            <div class="flex justify-between">
-                                <span>Entrée musée:</span>
-                                <span class="font-medium">2-5€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Parc national:</span>
-                                <span class="font-medium">3-5€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Excursion bateau:</span>
-                                <span class="font-medium">15-25€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Rafting Tara:</span>
-                                <span class="font-medium">35-50€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Guide privé/jour:</span>
-                                <span class="font-medium">80-120€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Parasol plage:</span>
-                                <span class="font-medium">5-10€</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4 flex items-center" style="color: #F8C36B;">
-                            🛍️ Shopping
-                        </h3>
-                        <div class="space-y-2 text-sm" style="color: #3B5F4B;">
-                            <div class="flex justify-between">
-                                <span>Eau (1.5L):</span>
-                                <span class="font-medium">0.50-1€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Pain:</span>
-                                <span class="font-medium">0.80-1.20€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Fromage local (kg):</span>
-                                <span class="font-medium">8-12€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Souvenir typique:</span>
-                                <span class="font-medium">5-15€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Carte SIM:</span>
-                                <span class="font-medium">10-15€</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>Crème solaire:</span>
-                                <span class="font-medium">8-12€</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Conseils économies -->
-            <div class="rounded-2xl p-8" style="background: linear-gradient(135deg, #A7C97E 0%, #F8C36B 100%);">
-                <h2 class="lovelo-font text-3xl mb-6" style="color: #3B5F4B;">💡 Conseils pour Économiser</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4" style="color: #3B5F4B;">✅ Bons Plans</h3>
-                        <ul class="space-y-3" style="color: #3B5F4B;">
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #A7C97E;">•</span>
-                                <span>Voyagez en mai-juin ou septembre-octobre pour des prix réduits</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #A7C97E;">•</span>
-                                <span>Mangez dans les "kafanas" locales plutôt que les restaurants touristiques</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #A7C97E;">•</span>
-                                <span>Utilisez les transports publics, très abordables et efficaces</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #A7C97E;">•</span>
-                                <span>Achetez dans les marchés locaux pour fruits et légumes frais</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #A7C97E;">•</span>
-                                <span>Profitez des nombreuses randonnées gratuites dans les parcs nationaux</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="lovelo-font text-xl mb-4" style="color: #3B5F4B;">⚠️ Pièges à Éviter</h3>
-                        <ul class="space-y-3" style="color: #3B5F4B;">
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #E98B57;">•</span>
-                                <span>Restaurants sur les places principales (prix majorés de 30-50%)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #E98B57;">•</span>
-                                <span>Taxis sans compteur (négociez le prix avant le départ)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #E98B57;">•</span>
-                                <span>Achats dans les zones touristiques (prix gonflés)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #E98B57;">•</span>
-                                <span>Frais bancaires élevés (retirez des grosses sommes)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2" style="color: #E98B57;">•</span>
-                                <span>Excursions vendues par les hôtels (réservez directement)</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page 6: Adresses Coup de Coeur -->
-    <div class="page fade-in" id="page-5">
-        <div class="gradient-bg pt-20 pb-12">
-            <div class="max-w-4xl mx-auto px-6 text-center" style="color: #F5F2E8;">
-                <h1 class="lovelo-font text-4xl mb-4">❤️ Adresses Coup de Cœur</h1>
-                <p class="text-lg opacity-90">Nos meilleures recommandations par ville</p>
-            </div>
-        </div>
-        
-        <div class="max-w-6xl mx-auto px-6 py-12">
-            <!-- Kotor -->
-            <div class="rounded-2xl brand-shadow mb-12 overflow-hidden" style="background-color: #F5F2E8;">
-                <div class="sky-gradient p-6 text-center" style="color: #F5F2E8;">
-                    <h2 class="lovelo-font text-3xl mb-2">🏰 Kotor</h2>
-                    <p class="text-lg opacity-90">Nos coups de cœur dans la cité médiévale</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 p-8">
-                    <div class="rounded-xl p-6 brand-shadow" style="background-color: #A7D5E8;">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍽️</span>
-                            <div>
-                                <h3 class="lovelo-font text-xl" style="color: #3B5F4B;">Galion Restaurant</h3>
-                                <div class="flex items-center">
-                                    <span style="color: #F8C36B;">⭐⭐⭐⭐⭐</span>
-                                    <span class="ml-2 text-sm" style="color: #3B5F4B;">4.8/5 (850+ avis)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-3" style="color: #3B5F4B;">Restaurant de fruits de mer d'exception face à la baie. Poissons ultra-frais, service impeccable et vue panoramique. Réservation indispensable.</p>
-                        <div class="space-y-2 text-sm">
-                            <p style="color: #3B5F4B;"><strong>Spécialité:</strong> Plateau de fruits de mer (45€)</p>
-                            <p style="color: #3B5F4B;"><strong>Adresse:</strong> Suranj bb, Kotor</p>
-                            <p style="color: #3B5F4B;"><strong>Prix moyen:</strong> 25-35€/personne</p>
-                        </div>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 brand-shadow" style="background-color: #F8C36B;">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍸</span>
-                            <div>
-                                <h3 class="lovelo-font text-xl" style="color: #3B5F4B;">Bokun Bar</h3>
-                                <div class="flex items-center">
-                                    <span style="color: #E98B57;">⭐⭐⭐⭐⭐</span>
-                                    <span class="ml-2 text-sm" style="color: #3B5F4B;">4.7/5 (650+ avis)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-3" style="color: #3B5F4B;">Bar à cocktails sophistiqué dans la vieille ville. Mixologie créative, ambiance feutrée et terrasse romantique. Parfait pour un apéritif ou digestif.</p>
-                        <div class="space-y-2 text-sm">
-                            <p style="color: #3B5F4B;"><strong>Spécialité:</strong> Cocktails signature (8-12€)</p>
-                            <p style="color: #3B5F4B;"><strong>Adresse:</strong> Stari Grad, Kotor</p>
-                            <p style="color: #3B5F4B;"><strong>Horaires:</strong> 18h-2h (été)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Budva -->
-            <div class="rounded-2xl brand-shadow mb-12 overflow-hidden" style="background-color: #F5F2E8;">
-                <div class="warm-gradient p-6 text-center" style="color: #F5F2E8;">
-                    <h2 class="lovelo-font text-3xl mb-2">🏖️ Budva</h2>
-                    <p class="text-lg opacity-90">Saveurs et ambiances de la riviera</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 p-8">
-                    <div class="rounded-xl p-6 brand-shadow" style="background-color: #E98B57;">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍽️</span>
-                            <div>
-                                <h3 class="lovelo-font text-xl" style="color: #F5F2E8;">Jadran Kod Krsta</h3>
-                                <div class="flex items-center">
-                                    <span style="color: #F8C36B;">⭐⭐⭐⭐⭐</span>
-                                    <span class="ml-2 text-sm" style="color: #F5F2E8;">4.9/5 (1200+ avis)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-3" style="color: #F5F2E8;">Institution locale depuis 1960. Cuisine traditionnelle authentique, portions généreuses et prix imbattables. Fréquenté par les locaux, gage de qualité.</p>
-                        <div class="space-y-2 text-sm">
-                            <p style="color: #F5F2E8;"><strong>Spécialité:</strong> Ćevapi maison (6€)</p>
-                            <p style="color: #F5F2E8;"><strong>Adresse:</strong> Njegoševa 4, Budva</p>
-                            <p style="color: #F5F2E8;"><strong>Prix moyen:</strong> 8-15€/personne</p>
-                        </div>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 brand-shadow" style="background-color: #A7C97E;">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍸</span>
-                            <div>
-                                <h3 class="lovelo-font text-xl" style="color: #3B5F4B;">Casper Bar</h3>
-                                <div class="flex items-center">
-                                    <span style="color: #F8C36B;">⭐⭐⭐⭐⭐</span>
-                                    <span class="ml-2 text-sm" style="color: #3B5F4B;">4.6/5 (900+ avis)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-3" style="color: #3B5F4B;">Bar branché de la vieille ville avec terrasse panoramique. Cocktails créatifs, DJ sets et vue imprenable sur la mer. Ambiance décontractée le jour, festive le soir.</p>
-                        <div class="space-y-2 text-sm">
-                            <p style="color: #3B5F4B;"><strong>Spécialité:</strong> Mojito Adriatic (9€)</p>
-                            <p style="color: #3B5F4B;"><strong>Adresse:</strong> Stari Grad, Budva</p>
-                            <p style="color: #3B5F4B;"><strong>Horaires:</strong> 10h-3h</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cetinje -->
-            <div class="rounded-2xl brand-shadow mb-12 overflow-hidden" style="background-color: #F5F2E8;">
-                <div class="earth-gradient p-6 text-center" style="color: #F5F2E8;">
-                    <h2 class="lovelo-font text-3xl mb-2">👑 Cetinje</h2>
-                    <p class="text-lg opacity-90">Élégance de l'ancienne capitale</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 p-8">
-                    <div class="rounded-xl p-6 brand-shadow" style="background-color: #CBAE94;">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍽️</span>
-                            <div>
-                                <h3 class="lovelo-font text-xl" style="color: #3B5F4B;">Belveder Restaurant</h3>
-                                <div class="flex items-center">
-                                    <span style="color: #F8C36B;">⭐⭐⭐⭐⭐</span>
-                                    <span class="ml-2 text-sm" style="color: #3B5F4B;">4.7/5 (400+ avis)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-3" style="color: #3B5F4B;">Restaurant gastronomique dans un cadre historique. Cuisine monténégrine raffinée, produits locaux de qualité et service royal. Parfait après la visite du palais.</p>
-                        <div class="space-y-2 text-sm">
-                            <p style="color: #3B5F4B;"><strong>Spécialité:</strong> Agneau de Njeguši (22€)</p>
-                            <p style="color: #3B5F4B;"><strong>Adresse:</strong> Baja Pivljanina 1, Cetinje</p>
-                            <p style="color: #3B5F4B;"><strong>Prix moyen:</strong> 18-28€/personne</p>
-                        </div>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 brand-shadow" style="background-color: #A7D5E8;">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">☕</span>
-                            <div>
-                                <h3 class="lovelo-font text-xl" style="color: #3B5F4B;">Café Royal</h3>
-                                <div class="flex items-center">
-                                    <span style="color: #F8C36B;">⭐⭐⭐⭐⭐</span>
-                                    <span class="ml-2 text-sm" style="color: #3B5F4B;">4.8/5 (300+ avis)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-3" style="color: #3B5F4B;">Café historique au charme d'antan. Atmosphère authentique, excellent café turc et pâtisseries traditionnelles. Lieu de rendez-vous des intellectuels locaux.</p>
-                        <div class="space-y-2 text-sm">
-                            <p style="color: #3B5F4B;"><strong>Spécialité:</strong> Café turc + baklava (4€)</p>
-                            <p style="color: #3B5F4B;"><strong>Adresse:</strong> Njegoševa 2, Cetinje</p>
-                            <p style="color: #3B5F4B;"><strong>Horaires:</strong> 7h-23h</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Podgorica -->
-            <div class="rounded-2xl brand-shadow overflow-hidden" style="background-color: #F5F2E8;">
-                <div class="nature-gradient p-6 text-center" style="color: #F5F2E8;">
-                    <h2 class="lovelo-font text-3xl mb-2">🏙️ Podgorica</h2>
-                    <p class="text-lg opacity-90">Modernité et tradition de la capitale</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 p-8">
-                    <div class="rounded-xl p-6 brand-shadow" style="background-color: #A7C97E;">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍽️</span>
-                            <div>
-                                <h3 class="lovelo-font text-xl" style="color: #3B5F4B;">Pod Volat</h3>
-                                <div class="flex items-center">
-                                    <span style="color: #F8C36B;">⭐⭐⭐⭐⭐</span>
-                                    <span class="ml-2 text-sm" style="color: #3B5F4B;">4.8/5 (1500+ avis)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-3" style="color: #3B5F4B;">Référence gastronomique de la capitale. Cuisine moderne avec influences balkaniques, carte des vins exceptionnelle et service professionnel. Réservation recommandée.</p>
-                        <div class="space-y-2 text-sm">
-                            <p style="color: #3B5F4B;"><strong>Spécialité:</strong> Filet de bœuf aux truffes (28€)</p>
-                            <p style="color: #3B5F4B;"><strong>Adresse:</strong> Stanka Dragojevića 16, Podgorica</p>
-                            <p style="color: #3B5F4B;"><strong>Prix moyen:</strong> 20-35€/personne</p>
-                        </div>
-                    </div>
-                    
-                    <div class="rounded-xl p-6 brand-shadow" style="background-color: #F8C36B;">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍸</span>
-                            <div>
-                                <h3 class="lovelo-font text-xl" style="color: #3B5F4B;">Hemingway Bar</h3>
-                                <div class="flex items-center">
-                                    <span style="color: #E98B57;">⭐⭐⭐⭐⭐</span>
-                                    <span class="ml-2 text-sm" style="color: #3B5F4B;">4.6/5 (800+ avis)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-3" style="color: #3B5F4B;">Bar littéraire élégant au cœur de la capitale. Cocktails d'auteur, ambiance cosy et clientèle cosmopolite. Parfait pour un after-work ou une soirée entre amis.</p>
-                        <div class="space-y-2 text-sm">
-                            <p style="color: #3B5F4B;"><strong>Spécialité:</strong> Old Fashioned Montenegro (11€)</p>
-                            <p style="color: #3B5F4B;"><strong>Adresse:</strong> Hercegovačka 18, Podgorica</p>
-                            <p style="color: #3B5F4B;"><strong>Horaires:</strong> 17h-2h</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-8" style="background-color: #3B5F4B; color: #F5F2E8;">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="flex items-center justify-center space-x-4 mb-4">
-                <div class="w-8 h-8 rounded-full" style="background-color: #E98B57;"></div>
-                <p class="lovelo-font text-lg">Petits Horizons</p>
-            </div>
-            <p class="text-lg mb-2">🏔️ Bon voyage au Monténégro ! 🏔️</p>
-            <p style="color: #CBAE94;">Guide complet pour découvrir la perle des Balkans</p>
-        </div>
-    </footer>
 
     <script>
-        let currentPage = 0;
-        const totalPages = 6;
+        function showTab(tabName) {
+            // Masquer tous les contenus
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
 
-        function showPage(pageIndex) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
+            // Désactiver tous les onglets
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
             });
-            
-            // Show selected page
-            document.getElementById(`page-${pageIndex}`).classList.add('active');
-            
-            // Update navigation buttons
-            document.querySelectorAll('.nav-btn').forEach((btn, index) => {
-                if (index === pageIndex) {
-                    btn.className = 'nav-btn nav-btn-active px-4 py-2 rounded-lg text-sm font-medium transition-all';
-                } else {
-                    btn.className = 'nav-btn nav-btn-inactive px-4 py-2 rounded-lg text-sm font-medium transition-all';
-                }
+
+            // Afficher le contenu sélectionné
+            document.getElementById(tabName).classList.add('active');
+
+            // Activer l'onglet cliqué
+            event.target.classList.add('active');
+
+            // Scroll vers le haut du contenu
+            document.querySelector('.tabs-container').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
             });
-            
-            currentPage = pageIndex;
-            
-            // Add fade-in animation
-            document.getElementById(`page-${pageIndex}`).classList.add('fade-in');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Initialize first page
-        showPage(0);
+        // Animation au scroll
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.city-card, .recommendation-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
+                
+                if (cardTop < window.innerHeight - cardVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
 
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft' && currentPage > 0) {
-                showPage(currentPage - 1);
-            } else if (e.key === 'ArrowRight' && currentPage < totalPages - 1) {
-                showPage(currentPage + 1);
-            }
+        // Initialisation des animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.city-card, .recommendation-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+            });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9720ac4a92680299',t:'MTc1NTY4MDE0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97213072e6f26fe7',t:'MTc1NTY4NTU1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
